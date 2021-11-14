@@ -1,6 +1,5 @@
 package com.example.Guy.Controller;
 
-import com.example.Guy.Controller.Bo.CampaignInput;
 import com.example.Guy.Dao.Model.Campaign;
 import com.example.Guy.Dao.Model.Product;
 import com.example.Guy.Service.OnlineAdsService;

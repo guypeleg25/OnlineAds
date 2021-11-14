@@ -13,12 +13,13 @@ import java.util.stream.Collectors;
 @Service
 public class OnlineAdsServiceImpl implements OnlineAdsService{
 
-    HashMap<String, Campaign> campaignHashMap = new HashMap<>(); // Hash between campaign id to campaign object
+    HashMap<String, Campaign> campaignHashMap = new HashMap<>(); // Hash between campaign id to campaign object --> illustrate CampaignRepo
 
     @Resource(name = "loadProductsFromJson")
-    HashMap<Integer, Product> productHashMap = new HashMap<>(); // Hash between product id to product object
+    HashMap<Integer, Product> productHashMap = new HashMap<>(); // Hash between product id to product object --> illustrate ProductRepo
     @Override
     public Campaign createCampaign(Campaign campaign) {
+
         Campaign camp = new Campaign(campaign.getCampaignName(), campaign.getProductsId(),campaign.getStartDate(),campaign.getBid());
         if(!campaignHashMap.containsKey(campaign.getCampaignName())){
             return campaignHashMap.put(campaign.getCampaignName(),camp);
@@ -29,9 +30,10 @@ public class OnlineAdsServiceImpl implements OnlineAdsService{
     @Override
     public Product serverAd(String category) {
 
+        if(productHashMap.isEmpty()) throw new ExistsException();
         Product p = Collections.max(productHashMap.values().stream().filter(x -> category.equals(x.getCategory())).collect(Collectors.toList()), Comparator.comparing(Product::getPrice));
         if(ObjectUtils.isEmpty(p))  return Collections.max(productHashMap.values(), Comparator.comparing(Product::getPrice));
-            return p;
+          return p;
     }
 
     @Override

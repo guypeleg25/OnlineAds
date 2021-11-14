@@ -16,7 +16,6 @@ public class ImportJson {
     @Bean(name = "loadProductsFromJson")
     public HashMap<Integer, Product> importDocumentsFromJsonFile() throws IOException, ParseException {
         HashMap<Integer, Product> hashMap = new HashMap<>();
-        Integer index = 0;
         JSONParser parser = new JSONParser();
         JSONArray jsonArray = (JSONArray) parser.parse(new FileReader(("C:\\Users\\shavit\\Desktop\\products.json")));
         for(Object o : jsonArray){
