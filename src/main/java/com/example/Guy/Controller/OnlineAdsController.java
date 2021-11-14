@@ -16,7 +16,7 @@ import java.util.List;
 public class OnlineAdsController {
 
     @Autowired
-    OnlineAdsService onlineAdsService;
+    OnlineAdsService onlineAdsService;//
 
     @RequestMapping(method = RequestMethod.POST, value = "/createCampaign")
     public Campaign createCampaign(@RequestBody  Campaign campaign){
