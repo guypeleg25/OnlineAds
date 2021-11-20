@@ -1,4 +1,4 @@
-package com.example.Guy.Dao.Model;
+package com.example.Guy.Dao.Model;https://github.com/guypeleg25/OnlineAds/blob/master/src/main/java/com/example/Guy/Dao/Model/Campaign.java
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -17,7 +17,7 @@ public class Campaign implements Serializable {
 
     String campaignName;
     List<Integer> productsId;
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
+    @JsonFormat(startDate=JsonFormat.Date.STRING, pattern="dd-MM-yyyy")
     Date startDate;
     Long bid;
 
